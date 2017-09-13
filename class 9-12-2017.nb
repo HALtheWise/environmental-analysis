@@ -1,0 +1,428 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16738,        420]
+NotebookOptionsPosition[     15216,        374]
+NotebookOutlinePosition[     15603,        391]
+CellTagsIndexPosition[     15560,        388]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Enthalpy", "Section",
+ CellChangeTimes->{{3.714226704796117*^9, 
+  3.714226706906539*^9}},ExpressionUUID->"b12a872e-9473-4c84-aa48-\
+9372432c8d64"],
+
+Cell[TextData[{
+ "Enthalpy = Internal Energy + Pressure * Volume\nH == U + P*V\n\n\
+\[CapitalDelta]H = q + ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    SuperscriptBox["\[Integral]", 
+     SubscriptBox["P", "f"]], 
+    SubscriptBox["P", "i"]], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "a678bca3-529f-4743-84a3-075017012214"],
+ "V dp\n\nAt constant pressure, change in enthalpy equals work of heat \
+added/lost\n\tDerivative of enthalpy equals power of heat flow"
+}], "Text",
+ CellChangeTimes->{{3.714226527961144*^9, 3.71422669801822*^9}, {
+  3.714226818988709*^9, 
+  3.714226831579136*^9}},ExpressionUUID->"081e1579-86e0-4feb-a518-\
+9f4bb0271a28"],
+
+Cell["\<\
+Latent question: How do I count \[OpenCurlyDoubleQuote]energy in\
+\[CloseCurlyDoubleQuote] for a coal power plant?\
+\>", "Text",
+ CellChangeTimes->{{3.714227010871818*^9, 
+  3.714227029555395*^9}},ExpressionUUID->"18ad0825-ed01-4c53-be9c-\
+7320b5924c6a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Heat Capacity", "Section",
+ CellChangeTimes->{{3.714227519868657*^9, 
+  3.714227523214981*^9}},ExpressionUUID->"9e1539d2-b4e1-4ff8-a302-\
+79f35a49bd34"],
+
+Cell[TextData[{
+ "C = heat capacity = dq/dT\n\nC = m ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", "s"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "34f4f761-2cc6-4bcf-b7f8-d920903b336a"],
+ " if you\[CloseCurlyQuote]re working with a nice, regular substance\n\nC = n \
+",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", "m"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "db43e1c4-6160-4446-b17b-63b2bc0c1c99"],
+ " when you just have molar specific heat available"
+}], "Text",
+ CellChangeTimes->{{3.714227525210244*^9, 
+  3.714227600499702*^9}},ExpressionUUID->"a450860d-333a-4ed7-bbb4-\
+e17c54c5444c"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "B"}]], "Input",
+ CellChangeTimes->{{3.71422777403936*^9, 
+  3.714227776504855*^9}},ExpressionUUID->"1bc69725-3faa-471e-8e1a-\
+c4516df652e4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "400g", Typeset`boxes$$ = 
+     TemplateBox[{"400", "\"g\"", "grams", "\"Grams\""}, "Quantity", 
+      SyntaxForm -> Mod], 
+     Typeset`allassumptions$$ = {{
+      "type" -> "Clash", "word" -> "g", "template" -> 
+       "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", "count" -> 
+       "2", "Values" -> {{
+         "name" -> "Unit", "desc" -> "a unit", "input" -> "*C.g-_*Unit-"}, {
+         "name" -> "Variable", "desc" -> "a variable", "input" -> 
+          "*C.g-_*Variable-"}}}, {
+      "type" -> "Unit", "word" -> "g", "template" -> 
+       "Assuming ${desc1} for \"${word}\". Use ${desc2} instead", "count" -> 
+       "4", "Values" -> {{
+         "name" -> "Grams", "desc" -> "grams", "input" -> 
+          "UnitClash_*g.*Grams--"}, {
+         "name" -> "StandardAccelerationOfGravity", "desc" -> 
+          "acceleration due to gravity", "input" -> 
+          "UnitClash_*g.*StandardAccelerationOfGravity--"}, {
+         "name" -> "Grads", "desc" -> "grads", "input" -> 
+          "UnitClash_*g.*Grads--"}, {
+         "name" -> "Games", "desc" -> "games", "input" -> 
+          "UnitClash_*g.*Games--"}}}}, Typeset`assumptions$$ = {}, 
+     Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.803818`6.356702720673149, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{168., {13., 29.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True], "*", 
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "78 deg C difference", 
+     Typeset`boxes$$ = 
+     TemplateBox[{
+      "78", "\"\[Degree]C\"", "Celsius degrees difference", 
+       "\"DegreesCelsiusDifference\""}, "Quantity", SyntaxForm -> Mod], 
+     Typeset`allassumptions$$ = {}, Typeset`assumptions$$ = {}, 
+     Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.946314`6.42758025869306, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{129., {13., 29.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True], "*", 
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "4.184 J / (g deg C)", 
+     Typeset`boxes$$ = TemplateBox[{"4.184", 
+       RowBox[{
+        "\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", "\"g\"", 
+         "\[ThinSpace]", "\"\[Degree]C\"", "\[InvisibleSpace]", "\")\""}], 
+       "joules per gram Celsius degree difference", 
+       FractionBox["\"Joules\"", 
+        RowBox[{"\"DegreesCelsiusDifference\"", " ", "\"Grams\""}]]}, 
+      "Quantity", SyntaxForm -> Mod], 
+     Typeset`allassumptions$$ = {{
+      "type" -> "Unit", "word" -> "J / (g deg C)", "template" -> 
+       "Assuming ${desc1} for \"${word}\". Use ${desc2} instead", "count" -> 
+       "2", 
+       "Values" -> {{
+         "name" -> "JoulesPerGramDegreeCelsiusDifference", "desc" -> 
+          "joules per gram degree Celsius difference", "input" -> 
+          "UnitClash_*J+%2F+%28g+deg+C%29.*\
+JoulesPerGramDegreeCelsiusDifference--"}, {
+         "name" -> "JoulesPerGramDegreeCelsius", "desc" -> 
+          "joules per gram degree Celsius", "input" -> 
+          "UnitClash_*J+%2F+%28g+deg+C%29.*JoulesPerGramDegreeCelsius--"}}}}, 
+     Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+     Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.845875`6.378851182987496, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{276., {13., 29.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True]}], "+", 
+  RowBox[{
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "500g", Typeset`boxes$$ = 
+     TemplateBox[{"500", "\"g\"", "grams", "\"Grams\""}, "Quantity", 
+      SyntaxForm -> Mod], 
+     Typeset`allassumptions$$ = {{
+      "type" -> "Clash", "word" -> "g", "template" -> 
+       "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", "count" -> 
+       "2", "Values" -> {{
+         "name" -> "Unit", "desc" -> "a unit", "input" -> "*C.g-_*Unit-"}, {
+         "name" -> "Variable", "desc" -> "a variable", "input" -> 
+          "*C.g-_*Variable-"}}}, {
+      "type" -> "Unit", "word" -> "g", "template" -> 
+       "Assuming ${desc1} for \"${word}\". Use ${desc2} instead", "count" -> 
+       "4", 
+       "Values" -> {{
+         "name" -> "Grams", "desc" -> "grams", "input" -> 
+          "UnitClash_*g.*Grams--"}, {
+         "name" -> "StandardAccelerationOfGravity", "desc" -> 
+          "acceleration due to gravity", "input" -> 
+          "UnitClash_*g.*StandardAccelerationOfGravity--"}, {
+         "name" -> "Grads", "desc" -> "grads", "input" -> 
+          "UnitClash_*g.*Grads--"}, {
+         "name" -> "Games", "desc" -> "games", "input" -> 
+          "UnitClash_*g.*Games--"}}}}, Typeset`assumptions$$ = {}, 
+     Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      1.820377`6.711706333164768, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{167., {13., 29.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True], "*", 
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "78 deg C difference", 
+     Typeset`boxes$$ = 
+     TemplateBox[{
+      "78", "\"\[Degree]C\"", "Celsius degrees difference", 
+       "\"DegreesCelsiusDifference\""}, "Quantity", SyntaxForm -> Mod], 
+     Typeset`allassumptions$$ = {}, Typeset`assumptions$$ = {}, 
+     Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.946314`6.42758025869306, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{129., {13., 29.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True], "*", 
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "0.38 J / (g deg C)", 
+     Typeset`boxes$$ = TemplateBox[{"0.38", 
+       RowBox[{
+        "\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", "\"g\"", 
+         "\[ThinSpace]", "\"\[Degree]C\"", "\[InvisibleSpace]", "\")\""}], 
+       "joules per gram Celsius degree difference", 
+       FractionBox["\"Joules\"", 
+        RowBox[{"\"DegreesCelsiusDifference\"", " ", "\"Grams\""}]]}, 
+      "Quantity", SyntaxForm -> Mod], 
+     Typeset`allassumptions$$ = {{
+      "type" -> "Unit", "word" -> "J / (g deg C)", "template" -> 
+       "Assuming ${desc1} for \"${word}\". Use ${desc2} instead", "count" -> 
+       "2", "Values" -> {{
+         "name" -> "JoulesPerGramDegreeCelsiusDifference", "desc" -> 
+          "joules per gram degree Celsius difference", "input" -> 
+          "UnitClash_*J+%2F+%28g+deg+C%29.*\
+JoulesPerGramDegreeCelsiusDifference--"}, {
+         "name" -> "JoulesPerGramDegreeCelsius", "desc" -> 
+          "joules per gram degree Celsius", "input" -> 
+          "UnitClash_*J+%2F+%28g+deg+C%29.*JoulesPerGramDegreeCelsius--"}}}}, 
+     Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+     Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.869535`6.390832061146888, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{262., {13., 29.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True]}]}]], "Input",
+ CellChangeTimes->{{3.7142277806092*^9, 3.7142278431152687`*^9}, 
+   3.714227959262949*^9},ExpressionUUID->"4aae1b0d-4c31-4e28-ac51-\
+fe61a6d06d75"],
+
+Cell[BoxData[
+ TemplateBox[{"145360.80000000002`","\"J\"","joules","\"Joules\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.7142278589235067`*^9, 
+  3.7142279598871202`*^9},ExpressionUUID->"78f9a9f7-7dc3-443b-b88a-\
+09f7e06f5634"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Sea ice", "Section",
+ CellChangeTimes->{{3.7142292204175243`*^9, 
+  3.7142292227251*^9}},ExpressionUUID->"f4fada56-2335-4c0e-8128-107274aaed36"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{RowBox[{"1.1", " ", 
+      SuperscriptBox["10", "13"]}],RowBox[{
+      SuperscriptBox["\"m\"", "3"]}],"meters cubed",SuperscriptBox[
+    "\"Meters\"", "3"]},
+   "Quantity"], "*", 
+  TemplateBox[{
+   "920",RowBox[{
+     "\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+      SuperscriptBox["\"m\"", "3"]}],"kilograms per meter cubed",FractionBox[
+    "\"Kilograms\"", 
+     SuperscriptBox["\"Meters\"", "3"]]},
+   "Quantity"]}]], "Input",
+ CellChangeTimes->{
+  3.714229225367997*^9},ExpressionUUID->"7a2f3ed3-feca-4943-8668-\
+a85b1ba9e7af"],
+
+Cell[BoxData[
+ TemplateBox[{"1.012`*^16","\"kg\"","kilograms","\"Kilograms\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.714229254074215*^9},ExpressionUUID->"0cf4b23d-f54b-4c06-ae94-\
+68eb8ed74022"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{0, Automatic}, {Automatic, 37}},
+CellContext->Notebook,
+Magnification:>1.5 Inherited,
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 153, 3, 97, "Section", "ExpressionUUID" -> \
+"b12a872e-9473-4c84-aa48-9372432c8d64"],
+Cell[736, 27, 681, 17, 291, "Text", "ExpressionUUID" -> \
+"081e1579-86e0-4feb-a518-9f4bb0271a28"],
+Cell[1420, 46, 264, 6, 50, "Text", "ExpressionUUID" -> \
+"18ad0825-ed01-4c53-be9c-7320b5924c6a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1721, 57, 158, 3, 97, "Section", "ExpressionUUID" -> \
+"9e1539d2-b4e1-4ff8-a302-79f35a49bd34"],
+Cell[1882, 62, 657, 18, 180, "Text", "ExpressionUUID" -> \
+"a450860d-333a-4ed7-bbb4-e17c54c5444c"],
+Cell[2542, 82, 210, 4, 116, "Input", "ExpressionUUID" -> \
+"1bc69725-3faa-471e-8e1a-c4516df652e4"],
+Cell[CellGroupData[{
+Cell[2777, 90, 11148, 238, 120, "Input", "ExpressionUUID" -> \
+"4aae1b0d-4c31-4e28-ac51-fe61a6d06d75"],
+Cell[13928, 330, 235, 5, 49, "Output", "ExpressionUUID" -> \
+"78f9a9f7-7dc3-443b-b88a-09f7e06f5634"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14212, 341, 150, 2, 97, "Section", "ExpressionUUID" -> \
+"f4fada56-2335-4c0e-8128-107274aaed36"],
+Cell[CellGroupData[{
+Cell[14387, 347, 591, 16, 59, "Input", "ExpressionUUID" -> \
+"7a2f3ed3-feca-4943-8668-a85b1ba9e7af"],
+Cell[14981, 365, 207, 5, 59, "Output", "ExpressionUUID" -> \
+"0cf4b23d-f54b-4c06-ae94-68eb8ed74022"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
