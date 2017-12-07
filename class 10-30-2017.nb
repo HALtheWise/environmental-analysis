@@ -1,0 +1,781 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29767,        771]
+NotebookOptionsPosition[     26893,        694]
+NotebookOutlinePosition[     27257,        710]
+CellTagsIndexPosition[     27214,        707]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Problem 1", "Title",
+ CellChangeTimes->{{3.718373303414526*^9, 
+  3.718373307750567*^9}},ExpressionUUID->"a2d66945-6a5f-4fb5-9f66-\
+663757c9d0a3"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"params", "=", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"upstream", "\[Rule]", " ", 
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "1000 ft^3/s", Typeset`boxes$$ = 
+        TemplateBox[{"1000", 
+          RowBox[{
+            SuperscriptBox["\"ft\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+            "\[InvisibleSpace]", "\"s\""}], "feet cubed per second", 
+          FractionBox[
+           SuperscriptBox["\"Feet\"", "3"], "\"Seconds\""]}, "Quantity", 
+         SyntaxForm -> Mod], Typeset`allassumptions$$ = {}, 
+        Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+        Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.709639`6.302582468723481, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{187., {13., 29.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"flow1", "\[Rule]", " ", 
+      RowBox[{"27.2", "*", 
+       TemplateBox[{
+        "1000000",
+         RowBox[{"\"gal\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]",
+            "\"day\""}],"gallons per day",FractionBox[
+         "\"Gallons\"", "\"Days\""]},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"flow2", "\[Rule]", 
+      RowBox[{"12", "*", 
+       TemplateBox[{
+        "1000000",
+         RowBox[{"\"gal\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]",
+            "\"day\""}],"gallons per day",FractionBox[
+         "\"Gallons\"", "\"Days\""]},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"conc0", " ", "\[Rule]", " ", 
+      RowBox[{"100", "/", 
+       TemplateBox[{"100","\"mL\"","milliliters","\"Milliliters\""},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"conc1", "\[Rule]", 
+      RowBox[{"200", "/", 
+       TemplateBox[{"100","\"mL\"","milliliters","\"Milliliters\""},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"conc2", "->", 
+      RowBox[{"1000", "/", 
+       TemplateBox[{"100","\"mL\"","milliliters","\"Milliliters\""},
+        "Quantity"]}]}]}], "\[IndentingNewLine]", "|>"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"flow12", "=", 
+   RowBox[{"upstream", " ", "+", " ", "flow1"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"flow123", "=", 
+   RowBox[{"flow12", "+", "flow2"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"flow12", "=", 
+     RowBox[{"flow123", "=", "upstream"}]}], ";"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.718373312489361*^9, 3.718373449454792*^9}, {
+  3.71837372827603*^9, 3.718373747483502*^9}, {3.7183740612013807`*^9, 
+  3.718374094854498*^9}},ExpressionUUID->"c2d61dc8-2202-4cae-88e8-\
+5ba0743b97d7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sys1", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"upstream", " ", "*", " ", "conc0"}], " ", "+", " ", 
+     RowBox[{"flow1", " ", "*", " ", "conc1"}], " ", "-", " ", 
+     RowBox[{"conc12", " ", "*", " ", "flow12"}]}], " ", "\[Equal]", " ", 
+    "0"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sys2", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"conc12", " ", "*", " ", "flow12"}], "+", 
+     RowBox[{"conc2", "*", "flow2"}], "-", 
+     RowBox[{"conc123", "*", "flow123"}]}], " ", "\[Equal]", " ", "0"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.718373414175149*^9, 3.718373419590335*^9}, {
+  3.71837345335686*^9, 
+  3.718373518864934*^9}},ExpressionUUID->"04c9eb44-dc33-46f9-b108-\
+a60c9056aa4b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sol", "=", 
+  RowBox[{
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"sys1", ",", " ", "sys2"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"conc12", ",", " ", "conc123"}], "}"}]}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.718373520269696*^9, 
+  3.7183736527083893`*^9}},ExpressionUUID->"0ac66d10-242f-415a-9bc4-\
+971743cd157a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"conc12", "\[Rule]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "conc1"}], " ", "flow1"}], "-", 
+       RowBox[{"conc0", " ", "upstream"}]}], 
+      RowBox[{"flow1", "+", "upstream"}]]}]}], ",", 
+   RowBox[{"conc123", "\[Rule]", 
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "conc1"}], " ", "flow1"}], "-", 
+       RowBox[{"conc2", " ", "flow2"}], "-", 
+       RowBox[{"conc0", " ", "upstream"}]}], 
+      RowBox[{"flow1", "+", "flow2", "+", "upstream"}]]}]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.71837352773168*^9, 3.718373653052659*^9}, 
+   3.7183737491684427`*^9, {3.718374078780724*^9, 3.718374098008957*^9}, 
+   3.718375400038164*^9},ExpressionUUID->"6762f91d-f636-4f42-99d9-\
+197316f054a0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"flow12", ",", "flow123"}], "}"}], "/.", "params"}], ",", 
+   "\"\<L/s\>\""}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"sol", "/.", "params"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.718373636845375*^9, 3.718373666320279*^9}, {
+  3.7183737646303587`*^9, 3.718373847869845*^9}, {3.7183743121908092`*^9, 
+  3.7183743533026333`*^9}},ExpressionUUID->"3be29234-2582-4000-b659-\
+a4f1f7dcab8f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "29508.550301777777`",
+     RowBox[{"\"L\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       "\"s\""}],"liters per second",FractionBox["\"Liters\"", "\"Seconds\""]},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "30034.30193844444`",
+     RowBox[{"\"L\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       "\"s\""}],"liters per second",FractionBox["\"Liters\"", "\"Seconds\""]},
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.718373749186249*^9, 3.7183738534690533`*^9}, {
+   3.7183740798102694`*^9, 3.718374098064728*^9}, 3.718374317099812*^9, {
+   3.718374347230235*^9, 3.718374353736577*^9}, 
+   3.718375400059463*^9},ExpressionUUID->"c1d7ab9a-f7e6-449a-9a62-\
+93b11642fe59"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"conc12", "\[Rule]", 
+    TemplateBox[{
+     "1.0403850306975595`*^6",RowBox[{"\"per \"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"meter\"", "3"]}],"per meters cubed",FractionBox["1", 
+       SuperscriptBox["\"Meters\"", "3"]]},
+     "Quantity"]}], ",", 
+   RowBox[{"conc123", "\[Rule]", 
+    TemplateBox[{
+     "1.1972234431124108`*^6",RowBox[{"\"per \"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"meter\"", "3"]}],"per meters cubed",FractionBox["1", 
+       SuperscriptBox["\"Meters\"", "3"]]},
+     "Quantity"]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.718373749186249*^9, 3.7183738534690533`*^9}, {
+   3.7183740798102694`*^9, 3.718374098064728*^9}, 3.718374317099812*^9, {
+   3.718374347230235*^9, 3.718374353736577*^9}, 
+   3.718375400103208*^9},ExpressionUUID->"638ce8fc-bd9d-484a-9629-\
+739f17345635"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Problem 2", "Title",
+ CellChangeTimes->{{3.718373303414526*^9, 3.718373307750567*^9}, {
+  3.718375414524867*^9, 
+  3.718375414591508*^9}},ExpressionUUID->"f5d9f6ef-3e18-400d-9392-\
+db6d75017f5b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"time", "=", 
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "1 day", Typeset`boxes$$ = 
+     TemplateBox[{"1", "\"day\"", "days", "\"Days\""}, "Quantity", SyntaxForm -> 
+      Mod], Typeset`allassumptions$$ = {}, Typeset`assumptions$$ = {}, 
+     Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.541906`6.185468953056927, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{129., {13., 29.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True]}], ";"}]], "Input",
+ CellChangeTimes->{{3.718375416737625*^9, 3.7183754241317*^9}, {
+  3.718375839477536*^9, 
+  3.718375842985969*^9}},ExpressionUUID->"81532a10-331a-4d3a-bd65-\
+66f1dc6085cb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"params", "=", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"upstream", "\[Rule]", " ", 
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "1000 ft^3/s", Typeset`boxes$$ = 
+        TemplateBox[{"1000", 
+          RowBox[{
+            SuperscriptBox["\"ft\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+            "\[InvisibleSpace]", "\"s\""}], "feet cubed per second", 
+          FractionBox[
+           SuperscriptBox["\"Feet\"", "3"], "\"Seconds\""]}, "Quantity", 
+         SyntaxForm -> Mod], Typeset`allassumptions$$ = {}, 
+        Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+        Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.709639`6.302582468723481, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{187., {13., 29.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"flow1", "\[Rule]", " ", 
+      RowBox[{"27.2", "*", 
+       TemplateBox[{
+        "1000000",
+         RowBox[{"\"gal\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]",
+            "\"day\""}],"gallons per day",FractionBox[
+         "\"Gallons\"", "\"Days\""]},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"flow2", "\[Rule]", 
+      RowBox[{"12", "*", 
+       TemplateBox[{
+        "1000000",
+         RowBox[{"\"gal\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]",
+            "\"day\""}],"gallons per day",FractionBox[
+         "\"Gallons\"", "\"Days\""]},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"conc0", " ", "\[Rule]", " ", 
+      RowBox[{"100", "/", 
+       TemplateBox[{"100","\"mL\"","milliliters","\"Milliliters\""},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"conc1", "\[Rule]", 
+      RowBox[{"200", "/", 
+       TemplateBox[{"100","\"mL\"","milliliters","\"Milliliters\""},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"conc2", "->", 
+      RowBox[{"1000", "/", 
+       TemplateBox[{"100","\"mL\"","milliliters","\"Milliliters\""},
+        "Quantity"]}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"k", "\[Rule]", 
+      RowBox[{
+       RowBox[{"-", "0.03"}], "/", 
+       TemplateBox[{
+        InterpretationBox["\[InvisibleSpace]", 1],"\"days\"","days",
+         "\"Days\""},
+        "Quantity"]}]}]}], "\[IndentingNewLine]", "|>"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"flow12", "=", 
+   RowBox[{"upstream", " ", "+", " ", "flow1"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"flow123", "=", 
+   RowBox[{"flow12", "+", "flow2"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"flow12", "=", 
+     RowBox[{"flow123", "=", "upstream"}]}], ";"}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.718373312489361*^9, 3.718373449454792*^9}, {
+   3.71837372827603*^9, 3.718373747483502*^9}, {3.7183740612013807`*^9, 
+   3.718374094854498*^9}, {3.7183754818706093`*^9, 3.71837549476728*^9}, 
+   3.718375647129054*^9},ExpressionUUID->"4c2805bf-342b-4a30-88c3-\
+8502fba2a300"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sys1", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"upstream", " ", "*", " ", "conc0"}], " ", "+", " ", 
+     RowBox[{"flow1", " ", "*", " ", "conc1"}], " ", "-", " ", 
+     RowBox[{
+      RowBox[{"cmid", "[", "0", "]"}], " ", "*", " ", "flow12"}]}], " ", 
+    "\[Equal]", " ", "0"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sys2", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"cmid", "[", "time", "]"}], " ", "*", " ", "flow12"}], "+", 
+     RowBox[{"conc2", "*", "flow2"}], "-", 
+     RowBox[{"conc123", "*", "flow123"}]}], " ", "\[Equal]", " ", "0"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"decay", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"cmid", "'"}], "[", "t", "]"}], "\[Equal]", 
+    RowBox[{
+     RowBox[{"cmid", "[", "t", "]"}], "*", "k"}]}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.718373414175149*^9, 3.718373419590335*^9}, {
+  3.71837345335686*^9, 3.718373518864934*^9}, {3.71837544445667*^9, 
+  3.718375480262561*^9}, {3.718375554278154*^9, 
+  3.718375555512507*^9}},ExpressionUUID->"84f115ae-654f-4de4-9ea0-\
+fcb39d505467"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"sol", "=", 
+  RowBox[{
+   RowBox[{"DSolve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"decay", ",", "sys1"}], "}"}], ",", " ", 
+     RowBox[{"cmid", "[", "t", "]"}], ",", "t"}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.718373520269696*^9, 3.7183736527083893`*^9}, {
+  3.718375504650606*^9, 3.718375570315312*^9}, {3.718375607924402*^9, 
+  3.718375638579911*^9}, {3.718375670146729*^9, 3.718375750000791*^9}, {
+  3.718376029795609*^9, 
+  3.718376030282502*^9}},ExpressionUUID->"c99aaa08-7d5a-4def-9802-\
+f3decbe6f543"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"cmid", "[", "t", "]"}], "\[Rule]", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[ExponentialE]", 
+      RowBox[{"k", " ", "t"}]], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"conc1", " ", "flow1"}], "+", 
+       RowBox[{"conc0", " ", "upstream"}]}], ")"}]}], 
+    RowBox[{"flow1", "+", "upstream"}]]}], "}"}]], "Output",
+ CellChangeTimes->{{3.71837352773168*^9, 3.718373653052659*^9}, 
+   3.7183737491684427`*^9, {3.718374078780724*^9, 3.718374098008957*^9}, 
+   3.7183754028038797`*^9, {3.71837552854665*^9, 3.7183755576606894`*^9}, {
+   3.718375612475012*^9, 3.718375630084577*^9}, {3.718375671233725*^9, 
+   3.718375675233821*^9}, 3.7183757062829313`*^9, 3.718375750348855*^9, 
+   3.7183758474396563`*^9, {3.718376004949953*^9, 3.718376030661153*^9}, {
+   3.718376195007722*^9, 3.718376212393985*^9}, 3.71837630993462*^9, {
+   3.7183763567332907`*^9, 
+   3.7183763688361073`*^9}},ExpressionUUID->"6fde376d-b57b-444e-8660-\
+c451812c9e02"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cmid", "/.", "params"}]], "Input",
+ CellChangeTimes->{{3.718376118551159*^9, 
+  3.718376118993474*^9}},ExpressionUUID->"ef6443f9-70f1-40e3-86ec-\
+cd248e6badd3"],
+
+Cell[BoxData["cmid"], "Output",
+ CellChangeTimes->{
+  3.718376105514179*^9, {3.718376195012693*^9, 3.718376212398999*^9}, 
+   3.718376309939488*^9, {3.718376356752803*^9, 
+   3.718376368854547*^9}},ExpressionUUID->"bb5e797a-5c44-470d-a5ca-\
+e4f7b97f01ab"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"cmid", "[", "t", "]"}], "/.", "sol"}], "/.", "params"}], "]"}],
+    ",", 
+   RowBox[{"{", 
+    RowBox[{"t", ",", 
+     TemplateBox[{"0","\"days\"","days","\"Days\""},
+      "Quantity"], ",", 
+     NamespaceBox["LinguisticAssistant",
+      DynamicModuleBox[{Typeset`query$$ = "1000 days", Typeset`boxes$$ = 
+       TemplateBox[{"1000", "\"days\"", "days", "\"Days\""}, "Quantity", 
+        SyntaxForm -> Mod], 
+       Typeset`allassumptions$$ = {{
+        "type" -> "MultiClash", "word" -> "", "template" -> 
+         "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as \
+${desc2}.", "count" -> "2", 
+         "Values" -> {{
+           "name" -> "Unit", "word" -> "days", "desc" -> "a unit", "input" -> 
+            "*MC.1000+days-_*Unit-"}, {
+           "name" -> "Book", "word" -> "1000 days", "desc" -> "a book", 
+            "input" -> "*MC.1000+days-_*Book-"}}}}, 
+       Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+       Typeset`querystate$$ = {
+       "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+        0.638779`6.256895623670573, "Messages" -> {}}}, 
+       DynamicBox[ToBoxes[
+         AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+          Dynamic[Typeset`query$$], 
+          Dynamic[Typeset`boxes$$], 
+          Dynamic[Typeset`allassumptions$$], 
+          Dynamic[Typeset`assumptions$$], 
+          Dynamic[Typeset`open$$], 
+          Dynamic[Typeset`querystate$$]], StandardForm],
+        ImageSizeCache->{219., {13., 29.}},
+        TrackedSymbols:>{
+         Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+          Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+       DynamicModuleValues:>{},
+       UndoTrackedVariables:>{Typeset`open$$}],
+      BaseStyle->{"Deploy"},
+      DeleteWithContents->True,
+      Editable->False,
+      SelectWithContents->True]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.718376040504382*^9, 3.7183761744812937`*^9}, {
+  3.718376236775777*^9, 
+  3.718376237167508*^9}},ExpressionUUID->"c083784c-d4bd-4903-968b-\
+c748c09b1a07"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {}, 
+    TagBox[
+     {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
+      1.], LineBox[CompressedData["
+1:eJwVz3040wkcAPBZ6rHc5S0eUklLaXQrWnXV+E5FNFw4T0kibOXcRkleV7N5
+r/2sRC+y0dGdLlSPkpdxeCJdLMnDUZ06dbdrydaLWrn7/v74Pt/n83yf75vj
+fmFQLJVCofhjkPlf3WeuN++dx++Km2bUdibnUFWq+9aKh56d3Z+HjNApplqe
+XcVzT4c3XuWk01XVFOMKvaeJV78r6S+lEv+PyllwXvPSl4JWGev0eqUVqALs
+pDNtTM7iTSt9ppR0oEVnTH9CBwx1vZlUukNN85ZxPRrkEtNtSVuhKjhF/Bfa
+Qh9aL48OgPCV2cuH0B7NKTszzUOgqK/WqgetPKy6OrZrN5Sli/sb0U98Hw8Y
+vCOgYYJRVIOO3ZGm3d8fBS/LRA4X0JymD8b9ghjoVUy+L0SbNo5T7Md50POI
+9TAT7TLlI9icdxDStStEAvTG2wva2dR4kApfr4pE1/nuc7ojFMD1K2qnIHTr
+XPMZi/wEYIREvvJCL2isHq3vTATey45ba9FLJYbEJtvDwHEZ3OmEjnCjncrl
+J4FdldFaG/K/lf4/dSmOwJ/HKfYmaCE7UBivSwaVsk49rWJytp7LdZV+kwKh
+YcxCDbrLUlQ5JzsV+i5Gzh9FH01YVcl9lAazj12duIeusLYqppplQKzwbnMr
+WR++6UGPzoQJ0dnIWrL/WdHoDaUIDg2y5irJ+Q/oVJPhY1DA0hrk6EZBU8Lz
+4uNA5exuyULn24pG0tzEEGx5SpyEXv1AWe7zWAxPB45bx6LfGBTO76VZQLUv
+mPoeHe/XdCXcUQK5iogBH3TrZffC6V4JxF7WiDege517orkHpbCIzlnHQE/Z
+f2uUZZwNe87Uuy1EaxfRDK9+zQYz65EvX6GrtrzVmvnlgCS/9/5MK5PjluLB
+PvA2B8IDk+Mn0enqS9kpp3MhDzRm4+jH5ydOxTHzYIc82TCAtk7K+SwfzoNd
+baqGTjQt0WtfYnI+jJfeT2pAD2TsXZzjWAC2p89Rq9ENn0IqM+4WwPI40XAJ
+OriM7+DCK4TiKOcbeehu7sj0PPMTcNRcHp6Kfr+Ed6+m9gQ8tVHN/QHtye/f
+7+x3Evh8qtFedERLaeio7iQs+zTnjj96Ayt9i3eRDGpi+ghP9FC6F2P2aRn4
+mu/+jvSRDppF1xkZ8Fuem5O+Hnj2CeeCDBbZfJR7oF3jGlLZ1TI41k8vZqOX
+KCbr1rbIwDQs9ewm8j9azEL63zLg9i2rWI/+OdBl1jONDO7k10WR9i7R/aPU
+yqB928alpKV08a3Fehkw2wIvrUPPsMuDFszIgNKYVsVC6w4N51nMJ+DH39S/
+uKOLbiuEahsChqR74kgzKfxQwo6A1u0vGKTjT76jf+1AgMmA4Yob+sVlyzYT
+BgFyzfLaNeS+1yNV3a4ETF27JiBNZ1WcyGESoE7dzCQd2cEMM2YRQDMNql9N
+3mPyATrXExAzOJZA+mKgakXWRgI8yvlrSG8uyZ7HYRNQekA3xUT/McZ9958n
+AQL3zOuk/wfS6DF7
+       "]]},
+     Annotation[#, "Charting`Private`Tag$17872#1"]& ]}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 1.040023848611457*^6},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, 
+     Charting`ScaledFrameTicks[{Identity, Identity}]}, {Automatic, 
+     Charting`ScaledFrameTicks[{Identity, Identity}]}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{
+   "DefaultBoundaryStyle" -> Automatic, "DefaultMeshStyle" -> 
+    AbsolutePointSize[6], "ScalingFunctions" -> None, 
+    "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0, 1000}, {1.040023848611457*^6, 1.0403850306901871`*^6}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.7183760502621193`*^9, 3.718376093503545*^9}, {
+   3.7183761270316067`*^9, 3.7183762124723463`*^9}, {3.718376245163663*^9, 
+   3.7183762535898867`*^9}, 3.7183763100351257`*^9, {3.718376356819059*^9, 
+   3.7183763689255466`*^9}},ExpressionUUID->"9d785a03-cad5-4663-8712-\
+1f1e9a263f50"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Solve", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"sys1", ",", "sys2"}], "}"}], "/.", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"cmid", "[", "t_", "]"}], ":>", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[ExponentialE]", 
+          RowBox[{"k", " ", "t"}]], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"conc1", " ", "flow1"}], "+", 
+           RowBox[{"conc0", " ", "upstream"}]}], ")"}]}], 
+        RowBox[{"flow1", "+", "upstream"}]]}], ")"}]}], ",", "conc123"}], 
+   "]"}], "/.", "params"}]], "Input",
+ CellChangeTimes->{{3.718375759449852*^9, 
+  3.718375820015855*^9}},ExpressionUUID->"2a3164ca-c5c0-499f-8ff7-\
+61dff89fb5d5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"conc123", "\[Rule]", 
+    TemplateBox[{
+     "1.1670136640039643`",RowBox[{"\"/\"", "\[InvisibleSpace]", "\"mL\""}],
+      "reciprocal milliliters",FractionBox["1", "\"Milliliters\""]},
+     "QuantityPostfix"]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.7183758147302217`*^9, 3.718375847537877*^9}, {
+   3.7183760050542927`*^9, 3.7183760182222652`*^9}, {3.71837619519256*^9, 
+   3.718376212573125*^9}, 3.718376310166905*^9, {3.718376356933899*^9, 
+   3.7183763690129633`*^9}},ExpressionUUID->"1a882a69-b1c5-4654-af9e-\
+765730ac4ebd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"flow12", ",", "flow123"}], "}"}], "/.", "params"}], ",", 
+   "\"\<L/s\>\""}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"UnitConvert", "[", 
+  RowBox[{"sol", "/.", "params"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.718373636845375*^9, 3.718373666320279*^9}, {
+  3.7183737646303587`*^9, 3.718373847869845*^9}, {3.7183743121908092`*^9, 
+  3.7183743533026333`*^9}},ExpressionUUID->"282bccca-e27d-4d6b-ae2c-\
+5a59a480214a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "29508.550301777777`",
+     RowBox[{"\"L\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       "\"s\""}],"liters per second",FractionBox["\"Liters\"", "\"Seconds\""]},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "30034.30193844444`",
+     RowBox[{"\"L\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       "\"s\""}],"liters per second",FractionBox["\"Liters\"", "\"Seconds\""]},
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.718373749186249*^9, 3.7183738534690533`*^9}, {
+   3.7183740798102694`*^9, 3.718374098064728*^9}, 3.718374317099812*^9, {
+   3.718374347230235*^9, 3.718374353736577*^9}, 3.7183754028329268`*^9, 
+   3.718375612547921*^9, 3.71837567527975*^9, 3.718375847570447*^9, {
+   3.7183760050862913`*^9, 3.71837601825807*^9}, {3.718376195220565*^9, 
+   3.71837621260548*^9}, 3.718376310202743*^9, {3.718376356961741*^9, 
+   3.718376369051302*^9}},ExpressionUUID->"4835e2f9-6be5-4ece-899a-\
+e2961106939d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"cmid", "[", "t", "]"}], "\[Rule]", 
+   RowBox[{
+    SuperscriptBox["\[ExponentialE]", 
+     RowBox[{"t", " ", 
+      RowBox[{"(", 
+       TemplateBox[{
+        RowBox[{"-", "3.472222222222222`*^-7"}],
+         RowBox[{"\"per \"", "\[InvisibleSpace]", "\"second\""}],
+         "reciprocal seconds",FractionBox["1", "\"Seconds\""]},
+        "Quantity"], ")"}]}]], " ", 
+    RowBox[{"(", 
+     TemplateBox[{
+      "1.0403850306975595`*^6",RowBox[{"\"per \"", "\[InvisibleSpace]", 
+         SuperscriptBox["\"meter\"", "3"]}],"per meters cubed",FractionBox[
+       "1", 
+        SuperscriptBox["\"Meters\"", "3"]]},
+      "Quantity"], ")"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.718373749186249*^9, 3.7183738534690533`*^9}, {
+   3.7183740798102694`*^9, 3.718374098064728*^9}, 3.718374317099812*^9, {
+   3.718374347230235*^9, 3.718374353736577*^9}, 3.7183754028329268`*^9, 
+   3.718375612547921*^9, 3.71837567527975*^9, 3.718375847570447*^9, {
+   3.7183760050862913`*^9, 3.71837601825807*^9}, {3.718376195220565*^9, 
+   3.71837621260548*^9}, 3.718376310202743*^9, {3.718376356961741*^9, 
+   3.718376369080418*^9}},ExpressionUUID->"1b3bc5f2-c71c-4be8-b208-\
+dd121a675e62"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{0, Automatic}, {Automatic, 37}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"11.1 for Linux x86 (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 152, 3, 139, "Title", "ExpressionUUID" -> \
+"a2d66945-6a5f-4fb5-9f66-663757c9d0a3"],
+Cell[735, 27, 3495, 81, 421, "Input", "ExpressionUUID" -> \
+"c2d61dc8-2202-4cae-88e8-5ba0743b97d7"],
+Cell[4233, 110, 752, 20, 83, "Input", "ExpressionUUID" -> \
+"04c9eb44-dc33-46f9-b108-a60c9056aa4b"],
+Cell[CellGroupData[{
+Cell[5010, 134, 427, 12, 49, "Input", "ExpressionUUID" -> \
+"0ac66d10-242f-415a-9bc4-971743cd157a"],
+Cell[5440, 148, 845, 24, 97, "Output", "ExpressionUUID" -> \
+"6762f91d-f636-4f42-99d9-197316f054a0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6322, 177, 518, 12, 83, "Input", "ExpressionUUID" -> \
+"3be29234-2582-4000-b659-a4f1f7dcab8f"],
+Cell[6843, 191, 769, 17, 76, "Output", "ExpressionUUID" -> \
+"c1d7ab9a-f7e6-449a-9a62-93b11642fe59"],
+Cell[7615, 210, 875, 19, 134, "Output", "ExpressionUUID" -> \
+"638ce8fc-bd9d-484a-9629-739f17345635"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8539, 235, 201, 4, 139, "Title", "ExpressionUUID" -> \
+"f5d9f6ef-3e18-400d-9392-db6d75017f5b"],
+Cell[8743, 241, 1396, 31, 67, "Input", "ExpressionUUID" -> \
+"81532a10-331a-4d3a-bd65-66f1dc6085cb"],
+Cell[10142, 274, 3817, 89, 459, "Input", "ExpressionUUID" -> \
+"4c2805bf-342b-4a30-88c3-8502fba2a300"],
+Cell[13962, 365, 1125, 30, 182, "Input", "ExpressionUUID" -> \
+"84f115ae-654f-4de4-9ea0-fcb39d505467"],
+Cell[CellGroupData[{
+Cell[15112, 399, 592, 14, 49, "Input", "ExpressionUUID" -> \
+"c99aaa08-7d5a-4def-9802-f3decbe6f543"],
+Cell[15707, 415, 1010, 22, 101, "Output", "ExpressionUUID" -> \
+"6fde376d-b57b-444e-8660-c451812c9e02"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16754, 442, 184, 4, 49, "Input", "ExpressionUUID" -> \
+"ef6443f9-70f1-40e3-86ec-cd248e6badd3"],
+Cell[16941, 448, 255, 5, 71, "Output", "ExpressionUUID" -> \
+"bb5e797a-5c44-470d-a5ca-e4f7b97f01ab"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17233, 458, 2179, 50, 68, "Input", "ExpressionUUID" -> \
+"c083784c-d4bd-4903-968b-c748c09b1a07"],
+Cell[19415, 510, 3282, 71, 337, "Output", "ExpressionUUID" -> \
+"9d785a03-cad5-4663-8712-1f1e9a263f50"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22734, 586, 738, 22, 87, "Input", "ExpressionUUID" -> \
+"2a3164ca-c5c0-499f-8ff7-61dff89fb5d5"],
+Cell[23475, 610, 596, 12, 76, "Output", "ExpressionUUID" -> \
+"1a882a69-b1c5-4654-af9e-765730ac4ebd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24108, 627, 518, 12, 83, "Input", "ExpressionUUID" -> \
+"282bccca-e27d-4d6b-ae2c-5a59a480214a"],
+Cell[24629, 641, 1008, 20, 76, "Output", "ExpressionUUID" -> \
+"4835e2f9-6be5-4ece-899a-e2961106939d"],
+Cell[25640, 663, 1225, 27, 99, "Output", "ExpressionUUID" -> \
+"1b3bc5f2-c71c-4be8-b208-dd121a675e62"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
